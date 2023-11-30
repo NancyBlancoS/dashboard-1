@@ -1,0 +1,26 @@
+body {
+    font-family: 'Open Sans';
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.option{
+    padding-bottom: 10px;
+    gap: 15px;
+}
+
+.option:hover {
+    color:  #12B981;
+    border-radius: 10px;
+}
+
+.menu-upper img {
+    width: 45px;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+}
