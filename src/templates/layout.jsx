@@ -1,13 +1,14 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import {Box, CssBaseline} from "@mui/material";
 
-function Layout(children) {
+function Layout({children}) {
+    const [menuComponent, headerComponent] = children;
 
     return (
         <Box style={{display: "flex", height: "100vh"}}>
         <CssBaseline />
         <Grid container sx={{flexGrow: 1}}>
-            <Grid item flexBasis={220}>MENU</Grid>
+            <Grid item flexBasis={280}>{menuComponent}</Grid>
             <Grid item flex={1}>
                 <Grid xs={12}>HEADER</Grid>
                 <Grid container spacing={3}>
