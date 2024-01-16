@@ -2,24 +2,26 @@ import Grid from "@mui/material/Unstable_Grid2";
 import {Box, CssBaseline} from "@mui/material";
 
 function Layout({children}) {
-    const [menuComponent, headerComponent] = children;
+    const [headerComponent, menuComponent, kpi1, kpi2, kpi3, kpi4, salesComponent, trafficComponent] = children;
 
     return (
-        <Box style={{display: "flex", height: "100vh"}}>
+        <Box style={{display: "flex", height: '100vh'}}>
         <CssBaseline />
-        <Grid container sx={{flexGrow: 1}}>
-            <Grid item flexBasis={280}>{menuComponent}</Grid>
-            <Grid item flex={1}>
-                <Grid xs={12}>HEADER</Grid>
-                <Grid container spacing={3}>
-                    <Grid xs={3}>PKI</Grid>
-                    <Grid xs={3}>PKI</Grid>
-                    <Grid xs={3}>PKI</Grid>
-                    <Grid xs={3}>PKI</Grid>
+        <Grid container sx={{flexGrow: 1, bgcolor:'#EEEEEE', overflow:'hidden'}}>
+            <Grid item flexBasis={250}>{menuComponent}</Grid>
+            <Grid item flex={1} sx={{margin: '15px 20px'}}>
+                <Grid xs={12}>{headerComponent}</Grid>
+
+                <Grid container spacing={2}>
+                    <Grid flex={1}>{kpi1}</Grid>
+                    <Grid flex={1}>{kpi2}</Grid>
+                    <Grid flex={1}>{kpi3}</Grid>
+                    <Grid flex={1}>{kpi4}</Grid>
                 </Grid>
-                <Grid container spacing={3}>
-                    <Grid xs={8}>Container 1</Grid>
-                    <Grid xs={4}>Container 2</Grid>
+
+                <Grid container spacing={2} sx={{marginTop:'15px'}}>
+                    <Grid flex={1.5}>{salesComponent}</Grid>
+                    <Grid flex={1}>{trafficComponent}</Grid>
                 </Grid>
             </Grid>
         </Grid>

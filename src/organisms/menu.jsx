@@ -1,8 +1,6 @@
 import React from 'react'
 
-import Grid from "@mui/material/Unstable_Grid2";
-import {Box} from "@mui/material";
-import Button from '@mui/material/Button';
+import {Autocomplete, Box, TextField} from "@mui/material";
 
 import {
     SignalCellularAltOutlined, 
@@ -10,11 +8,11 @@ import {
     ShoppingBagOutlined, 
     PersonOutlined, 
     SettingsOutlined, 
-    UnfoldMoreOutlined, 
     LockOutlined,
     PersonAddAlt1Outlined,
     CancelOutlined
 } from '@mui/icons-material';
+
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -22,40 +20,55 @@ import ListItemText from '@mui/material/ListItemText';
 import logo from '../assets/img/logo.png'
 
 import '../styles/styles.css';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 export default function Menu() {
 
     const iconStyle = {
-        color: '#EEF3FD', py:'10px'};
+        '&:hover':{
+            color:'#12B981',
+            bgcolor: 'rgba(238, 243, 253, 0.1)'
+        },
+        borderRadius:'10px',
+        padding:'10px',
+        margin:'15px 20px',
+        gap:'10px'
+    };
+
     const menuStyle = {
         bgcolor:'#192130',
         height: '100%',
-        padding: "20px"
+        color: '#EEF3FD',
+        padding:'10px 0'
     }
-    const optionsStyle = {
-        width: '100%'
-    }
+
+    const level = [
+        {label: 'Basic'},
+        {label: 'Medium'},
+        {label: 'Premium'}
+    ]
 
 return (
         <Box container className="container menu" sx={menuStyle}>
-
-            <MenuList sx={optionsStyle}>
-
-                <MenuItem className="option menu-upper" sx={iconStyle}>
+            <MenuList>
+                <MenuItem className="option menu-upper">
                     <img src={logo} alt="" />
                 </MenuItem>
 
                 <br />
 
-                <MenuItem className="menu-mid" sx={{bgcolor:"#6B7280", borderRadius:"10px", color: '#EEF3FD', py:'0 10px'}}>
-                    <Grid>
-                        <h3>Acme Inc</h3>
-                        <p>Your tier : Premium</p>
-                    </Grid>
+                <MenuItem className="menu-mid" sx={{borderRadius:"10px", width: '100%', color:'white', padding:'20px'}}>
+                    <Autocomplete
+                        disablePortal
+                        options={level}
+                        sx={{width: '100%', bgcolor: 'rgba(238, 243, 253, 0.1)', borderRadius:'10px'}}
+                        renderInput={(params) => <TextField 
+                                                    {...params}
+                                                    label='Acmen Inc' 
+                                                    className="text-color-red"/>}
+                    />
                 </MenuItem>
 
-                <br />
+                <hr/>
                 
                 <MenuItem className="option" sx={iconStyle}>
                     <SignalCellularAltOutlined/>
@@ -68,7 +81,7 @@ return (
                 </MenuItem>
 
                 <MenuItem className="option" sx={iconStyle}>
-                <ShoppingBagOutlined/>
+                    <ShoppingBagOutlined/>
                     <ListItemText>Products</ListItemText>
                 </MenuItem>
 
@@ -80,11 +93,6 @@ return (
                 <MenuItem className="option" sx={iconStyle}>
                     <SettingsOutlined/>
                     <ListItemText>Settings</ListItemText>
-                </MenuItem>
-
-                <MenuItem className="option" sx={iconStyle}>
-                    <UnfoldMoreOutlined/>
-                    <ListItemText>ComArrow</ListItemText>
                 </MenuItem>
 
                 <MenuItem className="option" sx={iconStyle}>
