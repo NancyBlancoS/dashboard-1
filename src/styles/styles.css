@@ -1,0 +1,19 @@
+body {
+    font-family: 'Open Sans';
+    background-color: '#EEEEEE';
+}
+
+
+.menu-upper img {
+    width: 45px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.percentage-color-red {
+    color: #CD4344;
+}
+
+.percentage-color-green {
+    color: #14B8A7;
+    }
